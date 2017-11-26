@@ -610,7 +610,13 @@
 	<deque>
 	<unordered_map>
 
-1511703441 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_139.cpp
+1511709876 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_139.cpp
+	<iostream>
+	<vector>
+	<deque>
+	<unordered_set>
+
+1511706861 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_140.cpp
 	<iostream>
 	<vector>
 	<deque>
