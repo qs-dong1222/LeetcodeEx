@@ -1,0 +1,612 @@
+# depslib dependency file v1.0
+1507991119 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_146.cpp
+	<iostream>
+	<vector>
+	<list>
+	<unordered_map>
+
+1510260474 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\test.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1508083698 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_678.cpp
+	<iostream>
+	<vector>
+	<cmath>
+	<list>
+	<stdlib.h>
+	<string.h>
+
+1508336708 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_dp_findmaxrob.cpp
+	<iostream>
+	<vector>
+	<list>
+	<unordered_map>
+	<cmath>
+
+1508350639 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_72.cpp
+	<iostream>
+	<vector>
+	<list>
+	<cmath>
+	<unordered_map>
+	<stdlib.h>
+
+1511284118 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_124.cpp
+	<iostream>
+	<vector>
+
+1508439294 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_297.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+
+1508441173 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_543.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+
+1508446073 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_687.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+
+1508513778 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_208.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508524349 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_688.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508529217 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_89.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508531715 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_37.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508600419 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_488.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508607021 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_304.cpp
+	<iostream>
+	<stdlib.h>
+	<unordered_map>
+	<list>
+	<vector>
+	<cmath>
+	<sstream>
+	<memory>
+
+1508705755 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_673.cpp
+	<vector>
+	<iostream>
+	<unordered_map>
+	<cmath>
+
+1508766772 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_39.cpp
+	<vector>
+	<iostream>
+
+1508769732 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_40.cpp
+	<vector>
+	<iostream>
+	<set>
+	<algorithm>
+
+1508855733 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_127.cpp
+	<vector>
+	<algorithm>
+	<iostream>
+	<list>
+	<unordered_set>
+	<set>
+	<queue>
+
+1508845552 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\test2.cpp
+	<iostream>
+	<algorithm>
+	<unordered_set>
+	<unordered_map>
+	<vector>
+	<queue>
+	<set>
+
+1508871537 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_300.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1508933912 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_409.cpp
+	<vector>
+	<iostream>
+	<algorithm>
+
+1508962138 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leecode_algo_127_wrong1.cpp
+	<iostream>
+	<cstring>
+	<algorithm>
+	<unordered_set>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1509005116 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_675.cpp
+	<iostream>
+	<unordered_set>
+	<vector>
+	<set>
+
+1509022384 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_675_opt.cpp
+	<iostream>
+	<vector>
+	<tuple>
+	<algorithm>
+	<set>
+	<queue>
+	<unordered_set>
+
+1509029299 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_455.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+	<unordered_set>
+	<set>
+	<algorithm>
+	<iterator>
+
+1509099034 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_221.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+	<set>
+
+1509105865 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_3.cpp
+	<iostream>
+	<unordered_set>
+
+1509108476 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_4.cpp
+	<iostream>
+	<vector>
+
+1509112666 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_5.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1509214424 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_12.cpp
+	<iostream>
+	<vector>
+	<sstream>
+
+1509218647 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_14.cpp
+	<iostream>
+	<vector>
+
+1509283424 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_15.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<set>
+
+1509365167 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_18.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<set>
+
+1509368557 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_19.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509374980 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_20.cpp
+	<stack>
+	<iostream>
+
+1509378340 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_21.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+
+1509449420 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_22.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+
+1509462713 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_24.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+
+1509476076 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_26.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509478827 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_27.cpp
+	<iostream>
+	<vector>
+
+1509527050 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_28.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	<stdlib.h>
+
+1509554448 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_29.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<sstream>
+	<stdint.h>
+
+1509615275 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_30.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509632369 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_31.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509637899 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_32.cpp
+	<iostream>
+	<vector>
+	<stack>
+
+1509657653 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_34.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509699142 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_38.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<sstream>
+
+1509724635 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_41.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1509798665 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_42.cpp
+	<iostream>
+	<vector>
+
+1509803630 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_43.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<sstream>
+
+1509818662 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_45.cpp
+	<iostream>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1509872637 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_48.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+
+1509879058 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_49.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+
+1509887017 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_50.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1509890732 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_51.cpp
+	<iostream>
+	<vector>
+
+1509911844 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_54.cpp
+	<iostream>
+	<vector>
+
+1509958611 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_55.cpp
+	<iostream>
+	<vector>
+
+1509964263 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_56.cpp
+	<iostream>
+	<vector>
+	<set>
+
+1509981286 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_57.cpp
+	<iostream>
+	<vector>
+	<set>
+
+1510052525 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_60.cpp
+	<iostream>
+	<vector>
+	<set>
+
+1510062294 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_61.cpp
+	<iostream>
+	<vector>
+
+1510069891 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_62.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510072671 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_63.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510074388 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_64.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510129346 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_66.cpp
+	<iostream>
+	<vector>
+
+1510134304 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_67.cpp
+	<iostream>
+	<vector>
+	<stdlib.h>
+
+1510161837 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_68.cpp
+	<iostream>
+	<vector>
+
+1510216341 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_71.cpp
+	<iostream>
+	<vector>
+	<stack>
+	<sstream>
+
+1510262620 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_74.cpp
+	<iostream>
+	<vector>
+
+1510323801 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_76.cpp
+	<iostream>
+	<vector>
+
+1510328188 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_ÅÅÁÐ×éºÏ.cpp
+	<iostream>
+	<vector>
+
+1510332872 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_79.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<queue>
+
+1510416208 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_81.cpp
+	<iostream>
+	<vector>
+
+1510420433 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_82.cpp
+	<iostream>
+	<vector>
+
+1510432824 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_84.cpp
+	<iostream>
+	<vector>
+	<stack>
+
+1510497247 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_85.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510502671 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_86.cpp
+	<iostream>
+	<vector>
+
+1510517423 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_90.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+	<algorithm>
+	<set>
+
+1510648944 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_91.cpp
+	<iostream>
+	<vector>
+
+1510662334 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_92.cpp
+	<iostream>
+	<vector>
+
+1510667092 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_93.cpp
+	<iostream>
+	<vector>
+	<string>
+
+1510757193 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_95.cpp
+	<iostream>
+	<vector>
+	<string>
+
+1510747289 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_96.cpp
+	<iostream>
+	<vector>
+
+1510776159 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_97.cpp
+	<iostream>
+	<vector>
+	<string>
+	<unordered_map>
+
+1510835594 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_98.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510842801 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_102.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1510844948 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_103.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1510845398 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_104.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510938307 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_105.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1510943509 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_107.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1510948355 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_108.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1511010138 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_113.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1511021851 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_114.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1511035455 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_115.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1511131150 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_120.cpp
+	<iostream>
+	<vector>
+
+1511172580 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_121.cpp
+	<iostream>
+	<vector>
+
+1511173830 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_122.cpp
+	<iostream>
+	<vector>
+
+1511183000 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_123.cpp
+	<iostream>
+	<vector>
+
+1511365181 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_126.cpp
+	<iostream>
+	<algorithm>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1511373997 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_128.cpp
+	<iostream>
+	<algorithm>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1511381856 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_129.cpp
+	<iostream>
+	<algorithm>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+
+1511440735 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_130.cpp
+	<iostream>
+	<algorithm>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+	<deque>
+
+1511554057 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_132.cpp
+	<iostream>
+	<algorithm>
+	<unordered_map>
+	<vector>
+	<queue>
+	<unordered_set>
+	<deque>
+
+1511569013 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_133.cpp
+	<iostream>
+	<vector>
+	<deque>
+
+1511616794 source:d:\extra learning converge\self study\c++ primer\exercise\cpp_leecode_algo\cpp_leetcode_algo_135.cpp
+	<iostream>
+	<vector>
+	<deque>
+	<unordered_map>
+
