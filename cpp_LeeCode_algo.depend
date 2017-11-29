@@ -655,7 +655,20 @@
 	<algorithm>
 	<vector>
 
-1511908437 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_148.cpp
+1511908613 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_148.cpp
 	<iostream>
 	<vector>
+
+1511982557 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_150.cpp
+	<iostream>
+	<vector>
+	<stack>
+	<string>
+
+1511988364 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_151.cpp
+	<iostream>
+	<vector>
+	<stack>
+	<string>
+	<sstream>
 
