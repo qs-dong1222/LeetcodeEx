@@ -33,7 +33,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="cpp_LeetCode_algo_151.cpp" />
+		<Unit filename="cpp_LeetCode_algo_154.cpp" />
+		<Unit filename="cpp_LeetCode_algo_155.cpp" />
+		<Unit filename="cpp_LeetCode_algo_162.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

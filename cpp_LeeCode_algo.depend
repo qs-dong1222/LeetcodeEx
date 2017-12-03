@@ -672,7 +672,13 @@
 	<string>
 	<sstream>
 
-1512076808 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_152.cpp
+1512078507 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_152.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<stack>
+
+1512226128 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_153.cpp
 	<iostream>
 	<vector>
 	<algorithm>
