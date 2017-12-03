@@ -41,5 +41,3 @@ int findMin(vector<int>& nums){
     return nums[ridx];
 }
 
-
-vector.insert()
