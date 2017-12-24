@@ -754,3 +754,50 @@
 	<unordered_set>
 	<unordered_map>
 
+1513118792 source:e:\learning converge\github files\leetcodeex\cpp_leecode_algo_allsubsets.cpp
+	<iostream>
+	<vector>
+	<string>
+	<cmath>
+	<algorithm>
+	<unordered_set>
+	<unordered_map>
+
+1514023113 source:e:\learning converge\github files\leetcodeex\cpp_algo_n_equ.cpp
+	<iostream>
+	<vector>
+	<string>
+	<cmath>
+	<algorithm>
+	<unordered_set>
+	<unordered_map>
+
+1514136656 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_189.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<algorithm>
+	<string>
+
+1514139573 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_190.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<algorithm>
+	<string>
+
+1514144694 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_198.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<algorithm>
+	<string>
+
+1514147467 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_199.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<algorithm>
+	<string>
+	<deque>
+

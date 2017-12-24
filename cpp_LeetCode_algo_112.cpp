@@ -2,14 +2,6 @@
 #include <vector>
 #include <queue>
 
-using namespace std;
-
-int main(){
-
-    return 0;
-}
-
-
 bool DFS(TreeNode* root, int sum) {
     if(!root)
         return false;
