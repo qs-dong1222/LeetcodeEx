@@ -7,126 +7,115 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
 };
 
-class Solution {
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int carry = 0;
-        int retDigit = 0;
-        int retCarry = 0;
-
-        int i;
-
-        vector<int> digits;
-        ListNode* p1 = l1;
-        ListNode* p2 = l2;
-
-        bool l1_end = false;
-        bool l2_end = false;
-
-        int l1_val = 0;
-        int l2_val = 0;
-
-        while( !(l1_end && l2_end) ){
-            if(!l1_end){
-                l1_val = p1->val;
-            }else{
-                l1_val = 0;
-            }
-
-            if(!l2_end){
-                l2_val = p2->val;
-            }else{
-                l2_val = 0;
-            }
-
-            retDigit = (l1_val + l2_val + carry) % 10;
-            carry = (l1_val + l2_val + carry) / 10;
-            digits.push_back(retDigit);
-
-            if(p1->next != NULL){
-                p1 = p1->next;
-            }else{
-                l1_end =true;
-            }
-
-            if(p2->next != NULL){
-                p2 = p2->next;
-            }else{
-                l2_end =true;
-            }
-        }
-
-
-        if(carry==1){
-            digits.push_back(carry);
-        }
-
-
-        ListNode* retl = new ListNode;;
-        ListNode* p = retl;
-        for(i=0;i<digits.size()-1;i++){
-            p->next = new ListNode;
-            p = p->next;
-        }
-        p->next = NULL;
-
-        p = retl;
-        for(i=0;i<digits.size();i++){
-            p->val = digits[i];
-            p = p->next;
-        }
-
-        return retl;
-
-    }
-
-
-
-    void addDigit(ListNode* node1, ListNode* node2, int carry, int* retDigit, int* retCarry){
-
-        if(node1 == NULL){
-            *retDigit = (node2->val + carry) % 10;
-            *retCarry = (node2->val + carry) / 10;
-        }
-        else if(node2 == NULL){
-            *retDigit = (node1->val + carry) % 10;
-            *retCarry = (node1->val + carry) / 10;
-        }
-        else{
-            *retDigit = (node1->val + node2->val + carry) % 10;
-            *retCarry = (node1->val + node2->val + carry) / 10;
-        }
-    }
-
-};
-
-
-
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 
 int main(){
+    ListNode l10(5);
+//    ListNode l11(4);
+//    ListNode l12(3);
+//    l10.next = &l11;
+//    l11.next = &l12;
 
-    ListNode a;
-    a.val = 1;
-    ListNode* l1 = &a;
-    ListNode b;
-    b.val = 8;
-    l1->next = &b;
-    l1->next->next = NULL;
+    ListNode l20(5);
+//    ListNode l21(6);
+//    ListNode l22(4);
+//    l20.next = &l21;
+//    l21.next = &l22;
 
-    ListNode c;
-    c.val = 0;
-    c.next = NULL;
-    ListNode* l2 = &c;
+    ListNode* p = addTwoNumbers(&l10, &l20);
 
-
-    Solution su;
-
-    ListNode* aaaaa = su.addTwoNumbers(l1, l2);
-
-    cout << aaaaa->val << endl;
-    cout << aaaaa->next->val << endl;
+    while(p){
+        cout << p->val << " ";
+        p = p->next;
+    }
 
     return 0;
+}
+
+
+
+/*
+solution 1: 思路清晰版
+*/
+//ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+//    if(!l1) return l2;
+//    if(!l2) return l1;
+//
+//    int carry = 0;
+//    int bitsum = 0;
+//    ListNode* dummyHead = new ListNode(0);
+//    ListNode* p = dummyHead;
+//    while(l1 && l2){
+//        bitsum = (l1->val + l2->val + carry) % 10;
+//        p->next = new ListNode(bitsum);
+//        carry = (l1->val + l2->val + carry) / 10;
+//
+//        p = p->next;
+//        l1 = l1->next;
+//        l2 = l2->next;
+//    }
+//
+//    if(!l2){
+//        // l1 is longer
+//        while(l1){
+//            bitsum = (l1->val + carry) % 10;
+//            p->next = new ListNode(bitsum);
+//            carry = (l1->val + carry) / 10;
+//
+//            p = p->next;
+//            l1 = l1->next;
+//        }
+//    }
+//
+//    if(!l1){
+//        // l2 is longer
+//        while(l2){
+//            bitsum = (l2->val + carry) % 10;
+//            p->next = new ListNode(bitsum);
+//            carry = (l2->val + carry) / 10;
+//
+//            p = p->next;
+//            l2 = l2->next;
+//        }
+//    }
+//
+//    // MSB carry bit
+//    if(carry>0){
+//        p->next = new ListNode(carry);
+//    }
+//
+//    return dummyHead->next;
+//}
+
+
+
+/*
+solution 2: 精简版, 手动空位补零
+*/
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    if(!l1) return l2;
+    if(!l2) return l1;
+
+    int carry = 0;
+    int bitsum = 0;
+
+    ListNode* dummyHead = new ListNode(0);
+    ListNode* p = dummyHead;
+
+    while(l1 || l2 || carry){
+        int val_1 = l1? l1->val:0;
+        int val_2 = l2? l2->val:0;
+        bitsum = (val_1 + val_2 + carry) % 10;
+        p->next = new ListNode(bitsum);
+        carry = (val_1 + val_2 + carry) / 10;
+
+        p = p->next;
+        l1 = l1? l1->next:NULL;
+        l2 = l2? l2->next:NULL;
+    }
+
+    return dummyHead->next;
 }
