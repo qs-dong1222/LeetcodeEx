@@ -33,7 +33,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="cpp_LeetCode_algo_4.cpp" />
+		<Unit filename="quicksort.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

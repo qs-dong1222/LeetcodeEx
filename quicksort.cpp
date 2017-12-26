@@ -2,19 +2,32 @@
 #include <vector>
 #include <list>
 #include <unordered_map>
+#include <string>
+#include <cstdlib>
 
 using namespace std;
 void QuickSort(vector<int>& nums, int lidx, int ridx);
 
-int main(){
-                    //  0,1,2,3,4,5,6
-    vector<int> nums = //{1,0,2};
-    {3,5,0,-2,1,6,0,4,8,0,7,4,4};
-    QuickSort(nums, 0, nums.size()-1);
-
+void printArr(vector<int>& nums){
     for(auto each : nums){
         cout << each << " ";
     }
+    cout << endl;
+}
+
+
+int main(){
+
+    vector<int> nums =
+    //{-2,-1,0,1,2,3};
+    //{6,5,4,3,2,1};
+    //{3,5,0,-2,1,6,0,0};
+    //{3,5,0,-2,1,6,0,4,8,0,7,4,4};
+    //{0,1,0,1,0,1,0,1,0,1};
+    {5,4,3,2,6};
+    QuickSort(nums, 0, nums.size()-1);
+
+    printArr(nums);
 
     return 0;
 }
@@ -23,27 +36,70 @@ int main(){
 void QuickSort(vector<int>& nums, int lidx, int ridx){
     if(lidx>=ridx) return;
 
-    int subject = nums[ridx];
-    int r = ridx-1;
-    while(lidx < r){
-        // if left number is < subject, we continue finding until the first number >= subject
-        // the reason we dont have '<=' is that if a number is the same as subject, then this number
-        // should be put on the right side of subject. the left side is always less than subject
-        while(nums[lidx] < subject)
-            lidx++;
+    // randomize the pivot
+    auto randIdx = lidx + (rand()%(ridx-lidx+1));
+    swap(nums[randIdx], nums[ridx]);
 
-        while(nums[r] >= subject)
+    int pivot = nums[ridx];
+    auto r = ridx-1;
+    auto l = lidx;
+    while(l <= r){
+        // 主旨就是: 一定要当l, r 真正交叉的时候(重叠不算), 结束扫描
+        while(l <= r && nums[l] < pivot){
+            l++;
+        }
+
+        while(l <= r && nums[r] >= pivot){
             r--;
+        }
 
-        if(r > lidx)
-            swap(nums[lidx], nums[r]);
+        if(l <= r){
+            swap(nums[l], nums[r]);
+            l++;
+            r--;
+        }
+        //printArr(nums);
     }
 
-    if(nums[lidx] > subject){
-        swap(nums[lidx], nums[ridx]);
-    }
+    // swap the pivot, now the pivot is in the middle position of 'l' and array is spit by the pivot
+    swap(nums[l], nums[ridx]);
 
-    QuickSort(nums, 0, lidx-1);
-    QuickSort(nums, lidx+1, ridx);
+    QuickSort(nums, lidx, l-1);
+    QuickSort(nums, l+1, ridx);
 }
+
+
+
+
+//void QuickSort(vector<int>& nums, int lidx, int ridx){
+//    if(nums.empty() || lidx>=ridx) return;
+//
+//    auto leftBound = lidx;
+//    auto rightBound = ridx;
+//    auto ref = nums[lidx + (rand()%(ridx-lidx+1))];
+//    while(lidx < ridx){
+//        while( lidx<ridx && nums[lidx]<ref ){
+//            lidx++;
+//        }
+//        while( lidx<ridx && nums[ridx]>ref ){
+//            ridx--;
+//        }
+//
+//        if(lidx < ridx){
+//            // no cross
+//            swap(nums[lidx], nums[ridx]);
+//            lidx++;
+//            ridx--;
+//        }
+//
+//        printArr(nums);
+//    }
+//
+//    QuickSort(nums, leftBound, lidx-1);
+//    QuickSort(nums, lidx+1, rightBound);
+//}
+
+
+
+
 

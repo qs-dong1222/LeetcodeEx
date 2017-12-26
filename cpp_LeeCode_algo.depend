@@ -626,11 +626,13 @@
 	<iostream>
 	<vector>
 
-1511813413 source:e:\learning converge\github files\leetcodeex\quicksort.cpp
+1514297860 source:e:\learning converge\github files\leetcodeex\quicksort.cpp
 	<iostream>
 	<vector>
 	<list>
 	<unordered_map>
+	<string>
+	<cstdlib>
 
 1511816792 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_147.cpp
 	<iostream>
@@ -819,7 +821,7 @@
 	<unordered_set>
 	<unordered_map>
 
-1514228564 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_4.cpp
+1514302389 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_4.cpp
 	<iostream>
 	<vector>
 
