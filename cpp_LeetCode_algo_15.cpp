@@ -8,7 +8,10 @@ using namespace std;
 vector<vector<int>> threeSum(vector<int>& nums);
 
 int main(){
-    vector<int> nums = {3,0,-2,-1,1,2};
+    vector<int> nums =
+    //{3,0,-2,-1,1,2};
+    {-1, 0, 1, 2, -1, -4};
+    //{0,1};
 
     vector<vector<int>> ans = threeSum(nums);
 
@@ -25,45 +28,38 @@ int main(){
 
 
 
-
-
 vector<vector<int>> threeSum(vector<int>& nums) {
+    vector<vector<int>> ans;
+    if(nums.empty() || nums.size()<3) return ans;
+
     sort(nums.begin(), nums.end());
-    set<vector<int>> ans;
-    vector<vector<int>> retAns;
 
-    if(nums.size()<3){
-        return retAns;
-    }
+    int target = 0;
 
-    vector<int> valid;
-    int lidx1, lidx2, ridx;
-    for(lidx1=0;lidx1<=(int)nums.size()-3;lidx1++){
-        lidx2 = lidx1 + 1;
-        ridx = nums.size()-1;
-        while(lidx2 < ridx){
-            if(nums[lidx1] + nums[lidx2] + nums[ridx] == 0){
-                valid.push_back(nums[lidx1]);
-                valid.push_back(nums[lidx2]);
-                valid.push_back(nums[ridx]);
-                sort(valid.begin(), valid.end());
-                ans.insert(valid);
-                valid.clear();
-                lidx2++;
+    for(int i=0;i<(int)nums.size()-2;i++){
+        int newTarget = target - nums[i];
+        int l = i+1;
+        int r = nums.size()-1;
+        while(l < r){
+            if(nums[l] + nums[r] > newTarget){
+                r--;
             }
-            else if(nums[lidx1] + nums[lidx2] + nums[ridx] < 0){
-                lidx2++;
+            else if(nums[l] + nums[r] < newTarget){
+                l++;
             }
             else{
-                ridx--;
+                vector<int> curr = {nums[i], nums[l], nums[r]};
+                ans.push_back(curr);
+                while(l<r && nums[l+1]==nums[l]) l++;
+                l++;
+                while(l<r && nums[r-1]==nums[r]) r--;
+                r--;
             }
         }
+
+        while(i<(int)nums.size()-2 && nums[i+1]==nums[i]) i++;
+        // for loop will i++ by itself
     }
 
-    for(auto eachArr : ans){
-        retAns.push_back(eachArr);
-    }
-
-    return retAns;
-
+    return ans;
 }
