@@ -11,7 +11,7 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-ListNode* swapAdjacentNodes(ListNode* headPair);
+ListNode* swapPairs(ListNode* head);
 
 int main(){
 
@@ -23,30 +23,43 @@ int main(){
     ListNode n6(6);
     ListNode n7(7);
     ListNode n8(8);
-    n1.next = &n3;
-    n3.next = &n5;
-    n5.next = &n7;
-    n7.next = NULL;
 
-    n2.next = &n4;
-    n4.next = &n6;
-    n6.next = &n8;
-    n8.next = NULL;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
+    n4.next = &n5;
+    n5.next = &n6;
+    n6.next = &n7;
 
-    ListNode *p = &n1;
-    ListNode **pp = &(p), *a, *b;
-    while ((a = *pp) && (b = a->next)) {
-        a->next = b->next;
-        b->next = a;
-        *pp = b;
-        cout << *pp << endl;
-        pp = &(a->next);
-        cout << *pp << endl;
+
+    ListNode* p = swapPairs(&n1);
+    while(p){
+        cout << p->val << " ";
+        p = p->next;
     }
 
-
-
-
-
     return 0;
+}
+
+
+
+
+ListNode* swapPairs(ListNode* head) {
+    if(!head) return head;
+
+    ListNode* dummyHead = new ListNode(0);
+    dummyHead->next = head;
+    ListNode* p = dummyHead;
+
+    while(p->next && p->next->next){
+        ListNode* t1 = p->next->next->next;
+        p->next->next->next = p->next;
+        ListNode* t2 = p->next;
+        p->next = p->next->next;
+        t2->next = t1;
+
+        p = p->next->next;
+    }
+
+    return dummyHead->next;
 }
