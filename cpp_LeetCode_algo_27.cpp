@@ -16,20 +16,49 @@ int main(){
     return 0;
 }
 
+
+
+
+
+
+
+
+
 int removeElement(vector<int>& nums, int val) {
-    if(nums.empty()) return 0;
+    if(nums.empty()) return nums.size();
 
-    vector<int>::iterator it = nums.begin();
-
-    int i=0;
-    while(i<(int)nums.size()){
+    for(int i=0;i<(int)nums.size();i++){
         if(nums[i]==val){
-            nums.erase(i+it);
-        }
-        else{
-            i++;
+            nums.erase(nums.begin()+i);
+            i--;
         }
     }
 
     return nums.size();
 }
+
+
+
+
+
+
+
+
+
+//int removeElement(vector<int>& nums, int val) {
+//    if(nums.empty()) return 0;
+//
+//    vector<int>::iterator it = nums.begin();
+//
+//    int i=0;
+//    while(i<(int)nums.size()){
+//        if(nums[i]==val){
+//            nums.erase(i+it);
+//        }
+//        else{
+//            i++;
+//        }
+//    }
+//
+//    return nums.size();
+//}
