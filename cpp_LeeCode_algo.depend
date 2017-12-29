@@ -879,3 +879,17 @@
 	<algorithm>
 	<vector>
 
+1514564464 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_29.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<sstream>
+	<stdint.h>
+	<cmath>
+
+1514572925 source:e:\learning converge\github files\leetcodeex\cpp_leetcode_algo_30.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<unordered_map>
+

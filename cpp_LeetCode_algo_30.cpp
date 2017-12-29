@@ -1,31 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
-void per(vector<string>& words, int n, int d, vector<string>& ans, string& curr, vector<bool>& used);
+vector<int> findSubstring(string s, vector<string>& words);
 
 int main(){
-    vector<string> words = {"foo", "abc", "mmm"};
-    vector<bool> used(words.size(), false);
-    string curr = "";
-    vector<string> ans;
+    vector<string> words = {"foo", "bar"};
 
-    per(words, words.size(), 0, ans, curr, used);
+    vector<int> ans = findSubstring("barfoothefoobarman", words);
 
-    for(auto each : ans){
-        cout << each << endl;
-    }
-
-    set<int> resSet;
-    vector<int> resTemp;
-    for(auto eachSubStr : ans){
-        resTemp = KMPsearch(s, eachSubStr);
-        if(!resTemp.empty()){
-            for(auto each : resTemp){
-                resSet.insert(each);
-            }
-        }
+    for(auto each:ans){
+        cout << each << " ";
     }
 
     return 0;
@@ -34,20 +21,45 @@ int main(){
 
 
 
-void per(vector<string>& words, int n, int d, vector<string>& ans, string& curr, vector<bool>& used){
-    if(d==n){
-        ans.push_back(curr);
-        return;
-    }
-    string temp;
-    for(int i=0; i<(int)words.size(); i++){
-        if(used[i]) continue;
+vector<int> findSubstring(string s, vector<string>& words) {
+    vector<int> ans;
+    if(s.empty() || words.empty()) return ans;
 
-        used[i] = true;
-        temp = curr;
-        curr = curr + words[i];
-        per(words, n, d+1, ans, curr, used);
-        curr = temp;
-        used[i] = false;
+    unordered_map<string, int> wordCnt;
+    int wordLen = words[0].size();
+    for(int i=0;i<(int)words.size();i++){
+        if(wordCnt.count(words[i])) wordCnt[words[i]]++;
+        else wordCnt[words[i]] = 1;
     }
+
+
+    int wordsNbr = words.size();
+    unordered_map<string, int> wordCntCopy = wordCnt;
+    int wordsNbrCopy = wordsNbr;
+    for(int startPos=0; startPos<=(int)(s.size()-wordsNbr*wordLen); startPos++){
+        wordsNbr = wordsNbrCopy;
+        wordCnt = wordCntCopy;
+        for(int i=startPos;i<(int)s.size()-wordsNbr*wordLen;i+=wordLen){
+            string tmpstr = s.substr(i, wordLen);
+            if(!wordCnt.count(tmpstr)){
+                break;
+            }
+            else if(wordCnt[tmpstr]<=0){
+                break;
+            }
+            else{
+                wordCnt[tmpstr]--;
+                wordsNbr--;
+            }
+
+            if(wordsNbr==0){
+                ans.push_back(startPos);
+                break;
+            }
+        }
+
+    }
+
+    return ans;
 }
+
