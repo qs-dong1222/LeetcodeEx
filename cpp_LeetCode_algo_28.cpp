@@ -20,6 +20,32 @@ int main(){
 
 
 
+
+/*
+solution 1: brute force
+*/
+int strStr(string haystack, string needle){
+    if(needle.empty()) return 0;
+    if(haystack.size() < needle.size()) return -1;
+
+    // scan every position in string haystack
+    for(int i=0; i<=haystack.size()-needle.size(); i++) {
+        // verify match in string needle
+        int j;
+        for(j=0; j<(int)needle.size() && haystack[i+j]==needle[j]; j++) ;
+        if(j==needle.size()) return i;
+    }
+
+    return -1;
+}
+
+
+
+
+
+/*
+solution 2 : KMP
+*/
 // function to find "next" array
 void GetNextArray(char* pattern, int* next){
     int size = strlen(pattern);
