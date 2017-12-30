@@ -4,8 +4,8 @@
 
 using namespace std;
 
-int GetBoxIndex(int r, int c);
 bool isValidSudoku(vector<vector<char>>& board);
+int boxidx(int r, int c);
 
 int main(){
 
@@ -14,21 +14,22 @@ int main(){
 
 
 bool isValidSudoku(vector<vector<char>>& board) {
-    vector<vector<int>> rowNumsExist(10, vector<int>(10,false));
-    vector<vector<int>> colNumsExist(10, vector<int>(10,false));
-    vector<vector<int>> boxNumsExist(10, vector<int>(10,false));
+    vector<vector<bool>> rowExist(board.size(), vector<bool>(10, false));
+    vector<vector<bool>> colExist(board[0].size(), vector<bool>(10, false));
+    vector<vector<bool>> boxExist(board.size(), vector<bool>(10, false));
 
-    int numIdx;
-    for(int r=0; r<board.size(); r++){
-        for(int c=0; c<board[0].size(); c++){
-            if(board[r][c] != '.'){
-                numIdx = board[r][c] - '0';
-                if( rowNumsExist[r][numIdx] ) return false;
-                rowNumsExist[r][numIdx] = true;
-                if( colNumsExist[c][numIdx] ) return false;
-                colNumsExist[c][numIdx] = true;
-                if( boxNumsExist[GetBoxIndex(r,c)][numIdx] ) return false;
-                boxNumsExist[GetBoxIndex(r,c)][numIdx] = true;
+    for(int r=0;r<board.size();r++){
+        for(int c=0;c<board[0].size();c++){
+            if(board[r][c]!='.'){
+                int digit = board[r][c]-'0';
+                if(rowExist[r][digit] || colExist[c][digit] || boxExist[boxidx(r,c)][digit]){
+                    return false;
+                }
+                else{
+                    rowExist[r][digit] = true;
+                    colExist[c][digit] = true;
+                    boxExist[boxidx(r,c)][digit] = true;
+                }
             }
         }
     }
@@ -37,7 +38,7 @@ bool isValidSudoku(vector<vector<char>>& board) {
 }
 
 
-
-int GetBoxIndex(int r, int c){
-    return (r/3)*3 + c/3;
+int boxidx(int r, int c){
+    return (c/3 + (r/3)*3);
 }
+
