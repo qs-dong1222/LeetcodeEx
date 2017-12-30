@@ -16,35 +16,64 @@ int main(){
 }
 
 
-vector<int> searchRange(vector<int>& nums, int target) {
-    if(nums.empty()) return vector<int>(2,-1);
-    int res = BiSearch(nums, target, 0, nums.size()-1);
-    if(res == -1) return vector<int>(2,-1);
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans = {-1,-1};
+        if(nums.empty()) return ans;
 
-    int lidx = res;
-    int ridx = res;
-    while( !(nums[lidx-1]!=target && nums[ridx+1]!=target) ){
-        if(nums[lidx-1]==target) lidx--;
-        if(nums[ridx+1]==target) ridx++;
+        int idx = BinarySearch(nums, 0, nums.size()-1, target);
+        int l = idx;
+        int r = idx;
+
+        while(l>0 && nums[l-1]==nums[l]){
+            l--;
+        }
+        while(r<nums.size()-1 && nums[r+1]==nums[r]){
+            r++;
+        }
+
+        ans[0] = l;
+        ans[1] = r;
+        return ans;
     }
 
-    vector<int> ans;
-    ans.push_back(lidx);
-    ans.push_back(ridx);
-    return ans;
-}
 
-int BiSearch(const vector<int>& nums, int target, int lidx, int ridx){
-    if(lidx > ridx){
+
+int BinarySearch(vector<int>& nums, int lidx, int ridx, int target){
+    if(lidx>ridx || nums.empty()){
         return -1;
     }
 
-    int mid = lidx+(ridx-lidx)/2;
-    if(target==nums[mid]) return mid;
-    if(target > nums[mid]){
-        return BiSearch(nums, target, mid+1, ridx);
+    int mid = lidx + (ridx-lidx)/2;
+
+    if(nums[mid]==target){
+        return mid;
     }
-    else if(target < nums[mid]){
-        return BiSearch(nums, target, 0, mid-1);
+    else if(nums[mid]>target){
+        if(target>=nums[lidx]){
+            return BinarySearch(nums, lidx, mid-1, target);
+        }
+        else{
+            if(nums[mid]>=nums[lidx]){
+                return BinarySearch(nums, mid+1, ridx, target);
+            }
+            else{
+                return BinarySearch(nums, lidx, mid-1, target);
+            }
+        }
     }
+    else{
+        if(target<nums[lidx]){
+            return BinarySearch(nums, mid+1, ridx, target);
+        }
+        else{
+            if(nums[mid]>=nums[lidx]){
+                return BinarySearch(nums, mid+1, ridx, target);
+            }
+            else{
+                return BinarySearch(nums, lidx, mid-1, target);
+            }
+        }
+    }
+
+    return -1;
 }
