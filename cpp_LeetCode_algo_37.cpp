@@ -9,7 +9,6 @@
 
 using namespace std;
 
-;
 inline int GetBoxKey(int r, int c);
 void solveSudoku(vector<vector<char>>& board);
 bool IsVaild(int digit, int r, int c, vector<vector<bool>>& rowExist, vector<vector<bool>>& colExist, vector<vector<bool>>& boxExist);
