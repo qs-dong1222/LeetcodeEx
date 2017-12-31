@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <sstream>
+#include <string>
 
 using namespace std;
 string Say(const string& s);
@@ -9,40 +8,46 @@ string countAndSay(int n);
 
 int main(){
 
-    string sayStr = countAndSay(10);
+    string sayStr = countAndSay(5);
     cout << sayStr << endl;
 
-//    string sayStr = Say("111221");
-//    cout << sayStr << endl;
+    //string sayStr = Say("21");
+    //cout << sayStr << endl;
     return 0;
 }
 
 
+
 string countAndSay(int n) {
-    if(n==0) return "";
-    string sayStr = "1";
-    for(int i=0; i<n-1 ; i++){
-        sayStr = Say(sayStr);
-    }
-    return sayStr;
+    string ans = "1";
+    if(n<=1) return ans;
+
+    return Say( countAndSay(n-1) );
 }
 
 
-string Say(const string& s) {
-    int cnt = 1;
-    char ch = s[0];
+string Say(const string& s){
     string ans;
-    for(int i=1; i<(int)s.size(); i++){
-        if(s[i] == ch)
-            cnt++;
-        else{
-            ans.push_back(cnt+'0');
-            ans.push_back(ch);
-            cnt = 1;
-            ch = s[i];
+    if(s.empty()) return ans;
+
+    int count = 1;
+    char curCh = s[0];
+    int i=1;
+    while(i<(int)s.size()){
+        if(s[i]==curCh){
+            count++;
         }
+        else{
+            ans += to_string(count);
+            ans.push_back(curCh);
+            count = 1;
+            curCh = s[i];
+        }
+        i++;
     }
-    ans.push_back(cnt+'0');
-    ans.push_back(ch);
+    ans += to_string(count);
+    ans.push_back(curCh);
+
     return ans;
 }
+
