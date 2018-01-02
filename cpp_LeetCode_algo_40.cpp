@@ -11,50 +11,51 @@ int main(){
     vector<int> curr;
     vector<vector<int>> ans;
 
-    sort(candidates.begin(), candidates.end());
-
-    DFS(candidates, 8, 0, curr, ans);
-
-    set<vector<int>> s;
-    for(auto each : ans){
-        s.insert(each);
-    }
-    ans.clear();
-    for(auto each:s){
-        ans.push_back(each);
-    }
-
-    for(auto a : ans){
-        for(auto b : a){
-            cout<< b << " ";
-        }
-        cout<< endl;
-    }
-
     return 0;
 }
 
 
 
 
-void DFS(vector<int>& candidates, int target, int start_idx, vector<int>& temp, vector<vector<int>>& ans){
-    if(target < 0){
+vector<vector<int>> combinationSum2(vector<int>& nums, int target) {
+    vector<vector<int>> ans;
+    if(nums.empty()) return ans;
+
+    vector<int> curr;
+    sort(nums.begin(), nums.end());
+
+    dfs(nums, 0, target, curr, ans);
+    return ans;
+}
+
+
+
+void dfs(vector<int>& nums, int start, int target, vector<int>&curr, vector<vector<int>>& ans){
+    if(target==0 && start<=(int)nums.size()){
+        ans.push_back(curr);
+        return;
+    }
+    else if(start>=(int)nums.size()){
         return;
     }
 
-    if(target == 0){
-        ans.push_back(temp);
-        return;
-    }
-
-    int i;
-    for(i=start_idx;i<(int)candidates.size();i++){
-        if(candidates[i] > target){
+    for(int i=start;i<(int)nums.size();i++){
+        // 这一步continue在这里很关键
+        // 由于题目要求是不能出现重复答案, 那么对于 nums={1,1,2,3}, target=6 这种输入
+        // 由于有两个'1', 在组合数抽取时会取第一个'1'和第二个'1'分别构成[1,2,3]
+        // 为解决这种问题, 在当前答案位置上(当前递归层中), 如果我们之前已经试过
+        // 一次'1'了, 那就没必要再试一次'1'了. 当然第一次的那个'1'是必须要试的
+        if(i>start && nums[i]==nums[i-1]){
+            continue;
+        }
+        if(target-nums[i]<0){
             return;
         }
 
-        temp.push_back(candidates[i]);
-        DFS(candidates,target-candidates[i],i+1,temp,ans);
-        temp.pop_back();
+        // collect this num
+        curr.push_back(nums[i]);
+        // if use "i+1" for next start index, we will not allow repetitive collection at the same index
+        dfs(nums, i+1, target-nums[i], curr, ans);
+        curr.pop_back();
     }
 }

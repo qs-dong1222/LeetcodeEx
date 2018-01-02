@@ -6,12 +6,16 @@ using namespace std;
 int firstMissingPositive(vector<int>& nums);
 
 int main(){
-    vector<int> nums = {-1,4,2,1,9,10};
+    vector<int> nums =
+    //{-1,4,2,1,9,10};
+    //{0,1,2};
 
     cout << firstMissingPositive(nums) << endl;
 
     return 0;
 }
+
+
 
 
 

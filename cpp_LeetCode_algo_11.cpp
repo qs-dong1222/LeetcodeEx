@@ -72,18 +72,16 @@ int waterTankVolume(vector<int>& height){
     int ans = 0;
     if(height.empty()) return ans;
 
-    // 两边添0，更方便的跳过两边无法储水的上升型柱子群
-    height.insert(height.begin(), 0);
-    height.push_back(0);
-
-    //跳过两边无法储水的上升型柱子群
     int l=0, r=height.size()-1;
+    /******************** optional *********************/
+    //跳过两边无法储水的上升型柱子群
     for(l=0;l<r;l++){
         if(height[l+1]<height[l]) break;
     }
     for(r=height.size()-1;l<r;r--){
         if(height[r-1]<height[r]) break;
     }
+    /******************** optional *********************/
 
     //从低的一边开始扫描，h记录低边的高度，扫描之处低于h的都能储水。
     //碰到比h高的柱子则重新比较两边高低，从而确定扫描方向
