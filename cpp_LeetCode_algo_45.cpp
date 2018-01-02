@@ -23,7 +23,7 @@ int main(){
 /*
 最优解法：
 此解法重点在于两个字：范围
-设有一数列：K-301415316
+设有一数列：K[0~301415316]
 我们的工作就是找到下一个可到达范围
 第一个数为3，即我们能通过从3上走一步到达的范围是k[1], k[2], k[3]. 这些点都是可以通过一步走到的。
 那么k[1]~k[3]的这个范围所能企及的下个范围是k[4]~k[3]+3 ， 为啥k[4]为起始？ 因为k[1]~k[3]的这个范围
@@ -99,13 +99,13 @@ int FindMinStep(vector<int>& nums){
 
 
 
-bool IsValid(vector<int>& nums, int idx){
-    if(nums[idx] != 0 && idx+nums[idx] <= nums.size()-1){
-        return true;
-    }
-    else
-        return false;
-}
+//bool IsValid(vector<int>& nums, int idx){
+//    if(nums[idx] != 0 && idx+nums[idx] <= nums.size()-1){
+//        return true;
+//    }
+//    else
+//        return false;
+//}
 
 
 
