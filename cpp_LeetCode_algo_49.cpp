@@ -1,11 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 #include <unordered_set>
+#include <algorithm>
 
 using namespace std;
-//void Permute(string& word, int begin, unordered_set<string>& ans);
 vector<vector<string>> groupAnagrams(vector<string>& strs);
 vector<int> WordCharCount(string& word);
+bool IsSameChar(const string& s1, const string& s2);
+string Encode(const string& s);
 
 int main(){
     vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
@@ -24,81 +27,97 @@ int main(){
 }
 
 
-//void Permute(string& word, int begin, unordered_set<string>& ans){
-//    if(begin >= word.size()){
-//        ans.insert(word);
-//        return;
-//    }
-//
-//    for(int i=begin;i<word.size();i++){
-//        swap(word[begin], word[i]);
-//        Permute(word, begin+1, ans);
-//        swap(word[begin], word[i]);
-//    }
-//}
-//
-//vector<vector<string>> groupAnagrams(vector<string>& strs) {
-//    if(strs.empty()) return vector<vector<string>>(0,vector<string>(0,""));
-//    unordered_set<string> permuteGroup;
-//    vector<string> partialRes;
-//    vector<vector<string>> ans;
-//
-//    while(!strs.empty()){
-//        permuteGroup.clear();
-//        partialRes.clear();
-//        Permute(strs[0], 0, permuteGroup);
-//        partialRes.push_back(strs[0]);
-//        strs.erase(strs.begin());
-//
-//        vector<string>::iterator it = strs.begin();
-//        for(int i=0; i<strs.size(); i++){
-//            if(permuteGroup.count(strs[i])){
-//                partialRes.push_back(strs[i]);
-//                strs.erase(i+strs.begin());
-//                i--;
-//            }
-//        }
-//        ans.push_back(partialRes);
-//    }
-//
-//    return ans;
-//}
 
-
-vector<vector<string>> groupAnagrams(vector<string>& strs){
-    if(strs.empty()) return vector<vector<string>>(0,vector<string>(0,""));
-    vector<int> charOccur(26,0);
-    vector<string> partialRes;
+/*
+solution 1 : 基于encode思想
+*/
+vector<vector<string>> groupAnagrams(vector<string>& words) {
     vector<vector<string>> ans;
+    if(words.empty()) return ans;
 
-    while(!strs.empty()){
-        partialRes.clear();
-        charOccur = WordCharCount(strs[0]);
-        partialRes.push_back(strs[0]);
-        strs.erase(strs.begin());
+    unordered_map<string, vector<string>> strmap;
 
-        vector<string>::iterator it = strs.begin();
-        for(int i=0; i<(int)strs.size(); i++){
-            if( WordCharCount(strs[i]) == charOccur ){
-                partialRes.push_back(strs[i]);
-                strs.erase(i+strs.begin());
-                i--;
-            }
-        }
-        ans.push_back(partialRes);
+    for(int i=0;i<(int)words.size();i++){
+        string encodeStr = Encode(words[i]);
+        strmap[encodeStr].push_back(words[i]);
+    }
+
+    for(auto each : strmap){
+        ans.push_back(each.second);
+    }
+
+    return ans;
+}
+
+/*
+利用基数排序的思想encode一个字符串，同字符构成的字符串，encode出来的结果一样，o(n)
+*/
+string Encode(const string& s){
+    string ans(26, '0');
+    if(s.empty()) return ans;
+
+    for(int i=0;i<(int)s.size();i++){
+         int oldcnt = ans[s[i]-'a'] - '0';
+         ans[s[i]-'a'] = oldcnt+1+'0';
     }
 
     return ans;
 }
 
 
-vector<int> WordCharCount(string& word){
-    vector<int> charOccur(26, 0);
 
-    for(auto each : word){
-        charOccur[each-'0']++;
+
+
+/*
+solution 2 : 同字符构成排序结果相同, 排序o(nlogn)
+*/
+//vector<vector<string>> groupAnagrams(vector<string>& words) {
+//    vector<vector<string>> ans;
+//    if(words.empty()) return ans;
+//
+//    unordered_map<string, vector<string>> strmap;
+//
+//    for(int i=0;i<(int)words.size();i++){
+//        string tmp = words[i];
+//        sort(tmp.begin(), tmp.end());
+//        strmap[tmp].push_back(words[i]);
+//    }
+//
+//    for(auto each : strmap){
+//        ans.push_back(each.second);
+//    }
+//
+//    return ans;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+o(n) 判断两个字符串是否是同数量字符构成
+*/
+bool IsSameChar(const string& s1, const string& s2){
+    if(s1.size()!=s2.size()) return false;
+
+    vector<int> charcnt(128,0);
+    for(int i=0;i<(int)s1.size();i++){
+        charcnt[s1[i]-'0']++;
+        charcnt[s2[i]-'0']--;
     }
 
-    return charOccur;
+    for(int i=0;i<(int)charcnt.size();i++){
+        if(charcnt[i]!=0) return false;
+    }
+
+    return true;
 }
+
 
