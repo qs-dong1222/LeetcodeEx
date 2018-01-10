@@ -3,9 +3,14 @@
 
 using namespace std;
 
-bool Check(vector<string>& chess, int row, int col);
-void SolveChessByRow(vector<string>& chess, int row, vector<vector<string>>& ans);
+//bool Check(vector<string>& chess, int row, int col);
+//void SolveChessByRow(vector<string>& chess, int row, vector<vector<string>>& ans);
+
+
+bool IsValid(vector<string>& chess, int r, int c);
+void Fill(vector<string>& chess, int r, vector<vector<string>>& ans);
 vector<vector<string>> solveNQueens(int n);
+
 
 int main(){
     vector<vector<string>> ans = solveNQueens(4);
@@ -16,71 +21,81 @@ int main(){
         cout << endl;
     }
 
+
     return 0;
 }
 
+
+
+/*
+实际上这种dfs的问题一般有两种角度.
+1. 试着去填一个结果, 再检测这个尝试的正确性, 并根据正确性进行回溯/下一步安排
+2. 先检测一个尝试的可行性, 可行了就做, 并根据做了的结果进行回溯/下一步安排
+*/
+
+
+
+/*
+solution 1: check validation before fill
+*/
 vector<vector<string>> solveNQueens(int n) {
     vector<vector<string>> ans;
     if(n==0) return ans;
 
     vector<string> chess(n, string(n, '.'));
-    SolveChessByRow(chess, 0, ans);
-
+    Fill(chess, 0, ans);
     return ans;
 }
 
-
-
-void SolveChessByRow(vector<string>& chess, int row, vector<vector<string>>& ans){
-    if(chess.empty()) return;
-
-    if(row == (int)chess.size()){
+void Fill(vector<string>& chess, int r, vector<vector<string>>& ans){
+    if(r>=(int)chess.size()){
         ans.push_back(chess);
         return;
     }
 
-    int c;
-    for(c=0; c<(int)chess[0].size(); c++){
-        if( Check(chess, row, c) ){
-            chess[row][c] = 'Q';
-            SolveChessByRow(chess, row+1, ans);
-            chess[row][c] = '.';
+    for(int c=0; c<(int)chess[0].size(); c++){
+        if(IsValid(chess, r, c)){
+            chess[r][c] = 'Q';
+            Fill(chess, r+1, ans);
+            chess[r][c] = '.';
         }
     }
 
-    return;
 }
 
-bool Check(vector<string>& chess, int row, int col){
-    int r,c;
-    //horizontally
-    for(c=0; c<(int)chess[0].size(); c++){
-        if(chess[row][c] == 'Q') return false;
+bool IsValid(vector<string>& chess, int r, int c){
+    if(r<0 || r>=(int)chess.size() || c<0 || c>=(int)chess[0].size() || chess[r][c]=='Q'){
+        return false;
     }
 
-    //vertically
-    for(r=0; r<(int)chess.size(); r++){
+    // row check
+    for(int col=0; col<(int)chess[0].size(); col++){
         if(chess[r][col] == 'Q') return false;
     }
 
-    //topleft
-    for(r=row-1, c=col-1; r>=0&&c>=0; r--,c--){
-        if(chess[r][c] == 'Q') return false;
+    // col check
+    for(int row=0; row<(int)chess.size(); row++){
+        if(chess[row][c] == 'Q') return false;
     }
 
-    //topright
-    for(r=row-1, c=col+1; r>=0&&c<(int)chess[0].size(); r--,c++){
-        if(chess[r][c] == 'Q') return false;
+    // top left check
+    for(int row=r-1,col=c-1; row>=0&&col>=0; row--,col--){
+        if(chess[row][col] == 'Q') return false;
     }
 
-    //botright
-    for(r=row+1, c=col+1; r<(int)chess.size()&&c<(int)chess[0].size(); r++,c++){
-        if(chess[r][c] == 'Q') return false;
+    // right bot check
+    for(int row=r+1,col=c+1; row<(int)chess.size()&&col<(int)chess[0].size(); row++,col++){
+        if(chess[row][col] == 'Q') return false;
     }
 
-    //botleft
-    for(r=row+1, c=col-1; r<(int)chess.size()&&c>=0; r++,c--){
-        if(chess[r][c] == 'Q') return false;
+    // right top check
+    for(int row=r-1,col=c+1; row>=0&&col<chess[0].size(); row--, col++){
+        if(chess[row][col] == 'Q') return false;
+    }
+
+    // left bot check
+    for(int row=r+1,col=c-1; row<(int)chess.size()&&col>=0; row++, col--){
+        if(chess[row][col] == 'Q') return false;
     }
 
     return true;
