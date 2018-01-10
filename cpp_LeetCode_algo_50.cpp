@@ -4,31 +4,23 @@
 
 using namespace std;
 unordered_map<int, double> resMap;
-double Pow(double x, int exp);
+double myPow(double x, int exp);
 
 int main(){
-    cout << Pow(2,-2) << endl;
+    cout << myPow(2,-2) << endl;
     return 0;
 }
 
 
-double Pow(double x, int exp){
-    if(x==0) return 0;
-    if(resMap.count(exp)){
-        return resMap[exp];
-    }
+double myPow(double x, int exp){
+    if(resMap.count(exp)) return resMap[exp];
 
-    if(exp == 1){
-        return x;
-    }
-    if(exp == 0){
-        return 1;
-    }
-    if(exp==-1){
-        return 1/x;
-    }
+    if(x==0) return x;
+    if(exp==0) return 1;
+    if(exp==1) return x;
+    if(exp==-1) return (double)1/x;
 
-    int halfExp = exp/2;
-    resMap[exp] = Pow(x, halfExp) * Pow(x, exp - halfExp);
+    resMap[exp] = myPow(x, exp/2) * myPow(x, exp-exp/2);
     return resMap[exp];
 }
+
