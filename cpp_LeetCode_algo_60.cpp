@@ -8,6 +8,8 @@ using namespace std;
 //string generateStr(int n);
 string getPermutation(int n, int k);
 vector<int> fac(int n);
+vector<int> genNums(int n);
+void helper(string& ans, vector<int>& nums, vector<int>& fac, int k);
 
 int main(){
 
@@ -15,6 +17,71 @@ int main(){
 
     return 0;
 }
+
+
+
+
+
+vector<int> fac(int n){
+    vector<int> ans;
+    ans.push_back(1);
+
+    int tmp = 1;
+    for(int i=1;i<=n;i++){
+        tmp *= i;
+        ans.push_back(tmp);
+    }
+    return ans;
+}
+
+
+vector<int> genNums(int n){
+    vector<int> nums(1,1);
+    for(int i=2;i<=n;i++){
+        nums.push_back(i);
+    }
+    return nums;
+}
+
+
+
+void helper(string& ans, vector<int>& nums, vector<int>& fac, int k){
+    if(nums.empty()) return;
+
+    int n_subElem = fac[nums.size()-1];
+    int pos = k / n_subElem;
+
+    ans.push_back(nums[pos]+'0');
+    nums.erase(nums.begin() + pos);
+    helper(ans, nums, fac, k - (k / n_subElem) * n_subElem);
+}
+
+
+
+
+string getPermutation(int n, int k){
+    vector<int> nums = genNums(n);
+    vector<int> factorial = fac(n);
+    string ans;
+    helper(ans, nums, factorial, k-1);
+
+    return ans;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -56,39 +123,39 @@ int main(){
 这个思路其实很不好想，我们首先要列出所有可能，寻找规律，如果一个规律没找好，就得不出结论。
 */
 
-string getPermutation(int n, int k) {
-    if(n==0 || k==0) return "";
-    string leftOverInitChar = "123456789";
-    vector<int> factorial = fac(n);
-    string ans;
-
-    int currFac;
-    k--;
-    while(n>=1){
-        currFac = factorial[n-1];
-        ans.push_back( leftOverInitChar[k/currFac] );
-        leftOverInitChar.erase(k/currFac, 1);
-        k = k%currFac;
-        n--;
-    }
-    return ans;
-}
-
-
-vector<int> fac(int n){
-    if(n==0) return vector<int>(1,1);
-
-    vector<int> ans;
-    ans.push_back(1); // 0!
-    int a=1;
-    for(int i=1;i<=n;i++){
-        a *= i;
-        ans.push_back(a);
-    }
-    return ans;
-}
-
-
+//string getPermutation(int n, int k) {
+//    if(n==0 || k==0) return "";
+//    string leftOverInitChar = "123456789";
+//    vector<int> factorial = fac(n);
+//    string ans;
+//
+//    int currFac;
+//    k--;
+//    while(n>=1){
+//        currFac = factorial[n-1];
+//        ans.push_back( leftOverInitChar[k/currFac] );
+//        leftOverInitChar.erase(k/currFac, 1);
+//        k = k%currFac;
+//        n--;
+//    }
+//    return ans;
+//}
+//
+//
+//vector<int> fac(int n){
+//    if(n==0) return vector<int>(1,1);
+//
+//    vector<int> ans;
+//    ans.push_back(1); // 0!
+//    int a=1;
+//    for(int i=1;i<=n;i++){
+//        a *= i;
+//        ans.push_back(a);
+//    }
+//    return ans;
+//}
+//
+//
 
 
 
