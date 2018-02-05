@@ -26,7 +26,11 @@ int main(){
     n4.next = &n5;
     n5.next = &n6;
 
-    rotateRight(&n0, 1);
+    ListNode* p = rotateRight(&n0, 10);
+    while(p){
+        cout << p->val << endl;
+        p = p->next;
+    }
 
     return 0;
 }
@@ -34,27 +38,34 @@ int main(){
 
 
 /*
-利用循环链表解题
+solution 1 : 利用循环链表解题
 */
 ListNode* rotateRight(ListNode* head, int k) {
-    if(head==NULL || head->next==NULL || k==0)
-        return head;
+    if(!head || k==0) return head;
 
-    ListNode* lastP = head;
-    int cnt=1;
-    while(lastP->next != NULL){
-        lastP = lastP->next;
+    ListNode* p = head;
+    int len=1;
+    while(p->next){
+        len++;
+        p = p->next;
+    }
+    p->next = head; // circle it
+
+    int cnt = 0;
+    k = k % len;
+    while(head){
         cnt++;
+        if(cnt == len-k) break;
+        head = head->next;
     }
-    lastP->next = head;
-    ListNode* firstP = head;
 
-    k %= cnt; // 防止 k > list.size() 的情况, 例如size=2，k=3，相当于k=1
-    while((cnt-k++) > 0){
-        firstP = firstP->next;
-        lastP = lastP->next;
-    }
-    lastP->next = NULL;
-
-    return firstP;
+    ListNode* tmp = head->next;
+    head->next = NULL;
+    head = tmp;
+    return head;
 }
+
+
+
+
+
