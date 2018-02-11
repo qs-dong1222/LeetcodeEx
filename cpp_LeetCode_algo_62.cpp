@@ -5,8 +5,10 @@
 using namespace std;
 
 int FindNbrOfPathAtCoord(int r, int c);
-unordered_map<string, int> resMap;
+unordered_map<int, int> resMap;
 int uniquePaths(int m, int n);
+int nPathAtCoord(int r, int c);
+
 
 int main(){
 
@@ -17,15 +19,18 @@ int main(){
 
 
 
+
+
+
 int uniquePaths(int m, int n) {
-    return FindNbrOfPathAtCoord(m,n);
+    if(m<0 || n<0) return 0;
+
+    return nPathAtCoord(m-1, n-1);
 }
 
 
-int FindNbrOfPathAtCoord(int r, int c){
-    string key;
-    key.push_back(r+'0');
-    key.push_back(c+'0');
+int nPathAtCoord(int r, int c){
+    int key = (r*13<<3) + c;
     if(resMap.count(key)){
         return resMap[key];
     }
@@ -33,17 +38,53 @@ int FindNbrOfPathAtCoord(int r, int c){
     if(r==0 && c==0){
         return 1;
     }
-
-    if(r==0 && c!=0){
-        resMap[key] = FindNbrOfPathAtCoord(r, c-1);
-        return resMap[key];
+    else if(r==0 && c!=0){
+        resMap[key] = nPathAtCoord(r, c-1);
     }
-
-    if(r!=0 && c==0){
-        resMap[key] = FindNbrOfPathAtCoord(r-1, c);
-        return resMap[key];
+    else if(r!=0 && c==0){
+        resMap[key] = nPathAtCoord(r-1, c);
     }
-
-    resMap[key] = FindNbrOfPathAtCoord(r-1,c) + FindNbrOfPathAtCoord(r,c-1);
+    else{
+        resMap[key] = nPathAtCoord(r-1, c) + nPathAtCoord(r, c-1);
+    }
     return resMap[key];
 }
+
+
+
+
+
+
+
+
+
+//int uniquePaths(int m, int n) {
+//    return FindNbrOfPathAtCoord(m,n);
+//}
+//
+//
+//int FindNbrOfPathAtCoord(int r, int c){
+//    string key;
+//    key.push_back(r+'0');
+//    key.push_back(c+'0');
+//    if(resMap.count(key)){
+//        return resMap[key];
+//    }
+//
+//    if(r==0 && c==0){
+//        return 1;
+//    }
+//
+//    if(r==0 && c!=0){
+//        resMap[key] = FindNbrOfPathAtCoord(r, c-1);
+//        return resMap[key];
+//    }
+//
+//    if(r!=0 && c==0){
+//        resMap[key] = FindNbrOfPathAtCoord(r-1, c);
+//        return resMap[key];
+//    }
+//
+//    resMap[key] = FindNbrOfPathAtCoord(r-1,c) + FindNbrOfPathAtCoord(r,c-1);
+//    return resMap[key];
+//}
