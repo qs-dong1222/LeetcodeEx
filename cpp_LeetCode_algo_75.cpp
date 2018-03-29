@@ -15,21 +15,55 @@ int main(){
 }
 
 
-void sortColors(vector<int>& nums) {
+
+
+
+
+
+void sortColors(vector<int>& nums){
     vector<int> ans(nums.size(), 1);
 
-    int lidx=0, ridx=nums.size()-1;
-    for(auto each : nums){
-        if(each == 0){
-            ans[lidx] = 0;
-            lidx++;
+    int l=0, r=nums.size()-1;
+
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i]==0){
+            ans[l] = 0;
+            l++;
         }
-        else if(each == 2){
-            ans[ridx] = 2;
-            ridx--;
+        else if(nums[i]==2){
+            ans[r] = 2;
+            r--;
         }
     }
 
     nums = ans;
 }
+
+
+
+
+
+
+
+
+
+
+
+//void sortColors(vector<int>& nums) {
+//    vector<int> ans(nums.size(), 1);
+//
+//    int lidx=0, ridx=nums.size()-1;
+//    for(auto each : nums){
+//        if(each == 0){
+//            ans[lidx] = 0;
+//            lidx++;
+//        }
+//        else if(each == 2){
+//            ans[ridx] = 2;
+//            ridx--;
+//        }
+//    }
+//
+//    nums = ans;
+//}
 

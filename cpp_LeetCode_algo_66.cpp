@@ -19,18 +19,50 @@ int main(){
 
 
 
+
 vector<int> plusOne(vector<int>& digits) {
+    vector<int> ans;
+    if(digits.empty()) return ans;
+
     int carry = 1;
-    int sum = 0;
-    for(int i=digits.size()-1; i>=0; i--){
-        sum = (digits[i]+carry) % 10;
-        carry =  (digits[i]+carry) / 10;
-        digits[i] = sum;
-        if(carry==0) break;
+    for(int i=digits.size()-1;i>=0;i--){
+        int sum = (digits[i] + carry) % 10;
+        carry = (digits[i] + carry) / 10;
+        ans.insert(ans.begin(), sum);
     }
 
-    if(carry != 0)
-        digits.insert(digits.begin(), 1, carry);
+    if(carry){
+        ans.insert(ans.begin(), carry);
+    }
 
-    return digits;
+    return ans;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//vector<int> plusOne(vector<int>& digits) {
+//    int carry = 1;
+//    int sum = 0;
+//    for(int i=digits.size()-1; i>=0; i--){
+//        sum = (digits[i]+carry) % 10;
+//        carry =  (digits[i]+carry) / 10;
+//        digits[i] = sum;
+//        if(carry==0) break;
+//    }
+//
+//    if(carry != 0)
+//        digits.insert(digits.begin(), 1, carry);
+//
+//    return digits;
+//}
