@@ -46,8 +46,7 @@ int main(){
 ÄÚ´æ¿Õ¼ä.
 */
 ListNode* deleteDuplicates(ListNode* head) {
-    if (!head) return 0;
-    if (!head->next) return head;
+    if (!head || !head->next) return head;
 
     int val = head->val;
     ListNode* p = head->next;
