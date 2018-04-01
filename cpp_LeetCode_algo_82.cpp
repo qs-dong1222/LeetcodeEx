@@ -39,44 +39,102 @@ int main(){
 
 
 
-ListNode* deleteDuplicates(ListNode* head) {
-    ListNode *ptmp = head, *prev, *curr;
-    bool removalOccur = false;
-    while(ptmp !=NULL && ptmp->next != NULL){
-        removalOccur = false;
-        if(ptmp==head){
-            curr = ptmp;
-            prev = ptmp;
-        }
-        else{
-            prev = curr;
-            curr = ptmp;
-        }
 
-        // remove all same nodes following current node
-        while(curr->next!=NULL && curr->next->val == curr->val){
-            removalOccur = true;
-            curr->next = curr->next->next;
-        }
-        // remove current node
-        if(removalOccur){
-            //remove current node
-            if(curr != head){
-                // this current node is not head node
-                prev->next = curr->next;
-            }
-            else{
-                // this current node is head node
-                head = curr->next;
-            }
-            ptmp = curr->next;
-            curr = prev;
-        }
-        else{
-            ptmp = ptmp->next;
-        }
+ListNode* deleteDuplicates(ListNode* head) {
+    if(!head || !head->next) return head;
+
+    ListNode* dhead = new ListNode(~head->val);
+    ListNode* ddhead = new ListNode(~dhead->val);
+    dhead->next = head;
+    ddhead->next = dhead;
+    ListNode* pprev = ddhead;
+    ListNode* prev = dhead;
+    ListNode* curr = head;
+    int record = ~head->val;
+
+    while(){
 
     }
 
-    return head;
+
 }
+
+
+
+
+/*
+这是我见过比较 elegant 的递归解法, 思路清晰且容易理解, 唯一要注意的是每次删掉 listnode 时, 要 free 这个 node 的
+内存空间.
+*/
+ListNode* deleteDuplicates(ListNode* head) {
+    if (!head) return 0;
+    if (!head->next) return head;
+
+    int val = head->val;
+    ListNode* p = head->next;
+
+    if (p->val != val) {
+        head->next = deleteDuplicates(p);
+        return head;
+    }
+    else {
+        while (p && p->val == val) {
+            p = p->next;
+            free(head->next);
+            head->next = p;
+        }
+
+        return deleteDuplicates(p);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+//ListNode* deleteDuplicates(ListNode* head) {
+//    ListNode *ptmp = head, *prev, *curr;
+//    bool removalOccur = false;
+//    while(ptmp !=NULL && ptmp->next != NULL){
+//        removalOccur = false;
+//        if(ptmp==head){
+//            curr = ptmp;
+//            prev = ptmp;
+//        }
+//        else{
+//            prev = curr;
+//            curr = ptmp;
+//        }
+//
+//        // remove all same nodes following current node
+//        while(curr->next!=NULL && curr->next->val == curr->val){
+//            removalOccur = true;
+//            curr->next = curr->next->next;
+//        }
+//        // remove current node
+//        if(removalOccur){
+//            //remove current node
+//            if(curr != head){
+//                // this current node is not head node
+//                prev->next = curr->next;
+//            }
+//            else{
+//                // this current node is head node
+//                head = curr->next;
+//            }
+//            ptmp = curr->next;
+//            curr = prev;
+//        }
+//        else{
+//            ptmp = ptmp->next;
+//        }
+//
+//    }
+//
+//    return head;
+//}
