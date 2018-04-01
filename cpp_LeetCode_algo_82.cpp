@@ -40,27 +40,6 @@ int main(){
 
 
 
-ListNode* deleteDuplicates(ListNode* head) {
-    if(!head || !head->next) return head;
-
-    ListNode* dhead = new ListNode(~head->val);
-    ListNode* ddhead = new ListNode(~dhead->val);
-    dhead->next = head;
-    ddhead->next = dhead;
-    ListNode* pprev = ddhead;
-    ListNode* prev = dhead;
-    ListNode* curr = head;
-    int record = ~head->val;
-
-    while(){
-
-    }
-
-
-}
-
-
-
 
 /*
 这是我见过比较 elegant 的递归解法, 思路清晰且容易理解, 唯一要注意的是每次删掉 listnode 时, 要 free 这个 node 的
