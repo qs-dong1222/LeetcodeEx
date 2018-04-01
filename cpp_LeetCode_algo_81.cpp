@@ -14,6 +14,9 @@ int main(){
 
 
 
+
+
+
 bool search(vector<int>& nums, int target) {
     int lidx = 0, ridx = nums.size()-1, mid;
 
