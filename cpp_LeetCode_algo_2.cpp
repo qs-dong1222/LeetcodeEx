@@ -93,7 +93,7 @@ solution 1: 思路清晰版
 
 
 /*
-solution 2: 精简版, 手动空位补零
+solution 2: 精简版, 手动为短的list空位补零
 */
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     if(!l1) return l2;

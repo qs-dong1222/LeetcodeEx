@@ -14,17 +14,17 @@ ListNode* deleteDuplicates(ListNode* head);
 int main(){
     ListNode n0(1);
     ListNode n1(1);
-//    ListNode n2(1);
-//    ListNode n3(1);
-//    ListNode n4(4);
-//    ListNode n5(5);
-//    ListNode n6(6);
+    ListNode n2(1);
+    ListNode n3(1);
+    ListNode n4(4);
+    ListNode n5(5);
+    ListNode n6(6);
     n0.next = &n1;
-//    n1.next = &n2;
-//    n2.next = &n3;
-//    n3.next = &n4;
-//    n4.next = &n5;
-//    n5.next = &n6;
+    n1.next = &n2;
+    n2.next = &n3;
+    n3.next = &n4;
+    n4.next = &n5;
+    n5.next = &n6;
 
     ListNode* p = deleteDuplicates(&n0);
 
@@ -40,31 +40,30 @@ int main(){
 
 
 
-
 /*
 这是我见过比较 elegant 的递归解法, 思路清晰且容易理解, 唯一要注意的是每次删掉 listnode 时, 要 free 这个 node 的
 内存空间.
 */
-ListNode* deleteDuplicates(ListNode* head) {
-    if (!head || !head->next) return head;
-
-    int val = head->val;
-    ListNode* p = head->next;
-
-    if (p->val != val) {
-        head->next = deleteDuplicates(p);
-        return head;
-    }
-    else {
-        while (p && p->val == val) {
-            p = p->next;
-            free(head->next);
-            head->next = p;
-        }
-
-        return deleteDuplicates(p);
-    }
-}
+//ListNode* deleteDuplicates(ListNode* head) {
+//    if (!head || !head->next) return head;
+//
+//    int val = head->val;
+//    ListNode* p = head->next;
+//
+//    if (p->val != val) {
+//        head->next = deleteDuplicates(p);
+//        return head;
+//    }
+//    else {
+//        while (p && p->val == val) {
+//            p = p->next;
+//            free(head->next);
+//            head->next = p;
+//        }
+//
+//        return deleteDuplicates(p);
+//    }
+//}
 
 
 

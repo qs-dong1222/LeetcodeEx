@@ -24,35 +24,62 @@ int main(){
 
 /*
 这个解体的思路也是非常牛B：
-以上升阶梯为启发，直到碰到一个下降阶梯为止。在下降阶梯之前的所有比下降阶梯高的阶梯都要依次求最大面积。
+关键点是怎么构建这个思路. 一个bar所求的最大面积取决于两个边界.
+只有找到左右两个最近的且比当前这个bar低的边界才能求出面积.
+以上升阶梯为启发，直到碰到一个下降阶梯bar_x为止。这个下降的阶梯就是右边界.
+那左边界怎么找? 咱们肯定已经碰见了. 但是在哪?
+咱们是上升阶梯找上来的, 最近的左边界肯定是一个挨着一个(阶梯中左边的
+bar肯定是相邻的右边的bar的左边界). 但是除了紧挨着bar_x的那个bar以外,
+其他的bar是不是还是以bar_x作为右边界就不一定了. 所以每次都要和bar_x比较一下.
+
+即:
+1.上升阶梯形式找到第一个下降阶梯bar_x.
+2.依次向左回看阶梯, 检查当前的bar是不是还是以bar_x为右边界.
+  如果是, 则与左边界结合求出当前bar的面积.
+  如果不是, 则说明找到了回看到头了. 此时, 当前这个bar就是bar_x的左边界.
+
+可以看到, 这是一个先存一波, 然后一个个向外面吐的过程. 我们可以用queue来实现,
+也可以用stack来实现. 效果都是一样的.
+
 由于之前是上升阶梯，底边长肯定依次增加的，高度是当前高度，底边长为当前位置向右直到下降阶梯的位置的总长度.
 由于我们是以下降阶梯的出现作为统计起始标准。而最后一段路上要是有一个上升阶梯，我们在最后并没有
 一个下降阶梯的结束符，所以还要人为的加上一个下降阶梯结束符，这个阶梯的高度应该是0，以保证是最以高度，
 从而能统计之前所有的阶梯面积。
 */
-int largestRectangleArea(vector<int> &height) {
-    if(height.empty()) return 0;
+int largestRectangleArea(vector<int>& heights) {
+  if(heights.empty()) return 0;
 
-    stack<int> stk;
-    int ans = INT_MIN;
-    int currMaxH;
-    height.push_back(0); // 这个 0 是用来作为最后的一个上升阶梯的结束符来使用的
-                         // 高度要最低，所以是0
+  stack<int> stk;
+  heights.push_back(0);
 
-    int i=0;
-    while(i<height.size()){
-        if( stk.empty() || height[i] > height[stk.top()] )
-            stk.push(i++);
-        else{
-            currMaxH = height[stk.top()];
-            stk.pop();
-            int left = stk.empty()? -1:stk.top();
-            ans = max(ans, currMaxH*(i-left-1));
+  int maxA = 0;
+  int prev_H = 0;
+
+  for(int i=0; i<(int)heights.size(); i++){
+    if(heights[i] < prev_H){
+      // there is bar in stack using heights[i] as right bound. Should
+      // find its left bound now.
+      while(!stk.empty() && heights[stk.top()] > heights[i]){
+	int Edge = 0;
+	// record height for this bar
+        int H = heights[stk.top()];
+        stk.pop();
+	// no left bound for this bar, this bar is the most left bar.
+	if(stk.empty()){
+          Edge = i;
         }
+	// found the left bound for this bar
+	if(!stk.empty() && heights[stk.top()] < H){
+          Edge = i - stk.top() - 1;
+        }
+	maxA = max(maxA, Edge*H);
+      }
     }
+    stk.push(i);
+    prev_H = heights[i];
+  }
 
-
-    return ans;
+  return maxA;
 }
 
 
@@ -60,81 +87,29 @@ int largestRectangleArea(vector<int> &height) {
 
 
 
-
-
-
 //int largestRectangleArea(vector<int> &height) {
-//    int n=height.size();
-//    if(n==0) return 0;
-//    if(n==1) return height[0];
+//    if(height.empty()) return 0;
 //
-//    height.push_back(0);
-//    n++;
+//    stack<int> stk;
+//    int ans = INT_MIN;
+//    int currMaxH;
+//    height.push_back(0); // 这个 0 是用来作为最后的一个上升阶梯的结束符来使用的
+//                         // 高度要最低，所以是0
 //
-//    int ans=0;
-//    stack<int> s;
-//
-//    int i=0,j=0,h=0;
-//    while(i<n){
-//        if(s.empty() || height[i]>height[s.top()]) s.push(i++);
+//    int i=0;
+//    while(i<height.size()){
+//        if( stk.empty() || height[i] > height[stk.top()] )
+//            stk.push(i++);
 //        else{
-//            h=height[s.top()];
-//            s.pop();
-//            j= s.empty() ? -1:s.top();
-//            ans=max(ans,h*(i-j-1));
-//        }
-//    }
-//    return ans;
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-//int largestRectangleArea(vector<int>& heights) {
-//    if(heights.empty()) return 0;
-//
-//    int ans = FindAreaAtBar(heights,0);
-//    for(int i=1;i<heights.size();i++){
-//        while(heights[i] == heights[i-1]) i++;
-//        if(i<heights.size()){
-//            ans = max(ans, FindAreaAtBar(heights, i));
+//            currMaxH = height[stk.top()];
+//            stk.pop();
+//            int left = stk.empty()? -1:stk.top();
+//            ans = max(ans, currMaxH*(i-left-1));
 //        }
 //    }
 //
 //    return ans;
 //}
-//
-//int FindAreaAtBar(vector<int>& bars, int idx){
-//    int lidx = idx-1, ridx = idx+1;
-//    int area = bars[idx];
-//    bool leftEnd = false;
-//    bool rightEnd = false;
-//
-//    while(!leftEnd || !rightEnd){
-//        if(lidx < 0 || bars[lidx] < bars[idx]){
-//            leftEnd = true;
-//        }
-//        else{
-//            area += bars[idx];
-//            lidx--;
-//        }
-//
-//        if(ridx >= bars.size() || bars[ridx] < bars[idx]){
-//            rightEnd = true;
-//        }
-//        else{
-//            area += bars[idx];
-//            ridx++;
-//        }
-//    }
-//
-//    return area;
-//}
+
+
+

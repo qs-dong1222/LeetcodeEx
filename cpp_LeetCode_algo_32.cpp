@@ -57,6 +57,3 @@ int longestValidParentheses(string s) {
     return len;
 }
 
-
-
-

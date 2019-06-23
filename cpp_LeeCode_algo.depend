@@ -988,3 +988,102 @@
 	<vector>
 	<string>
 
+1517821000 source:e:\code\github\leetcodeex\cpp_leetcode_algo_85.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1524659515 source:e:\code\github\leetcodeex\polymorphism.cpp
+	<cstdlib>
+	<iostream>
+
+1546162154 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_8.cpp
+	<sstream>
+	<iostream>
+	<vector>
+	<string>
+	<cmath>
+	<algorithm>
+
+1546459345 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_17.cpp
+	<vector>
+	<iostream>
+
+1546974260 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_23.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+
+1547306897 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_32.cpp
+	<iostream>
+	<vector>
+	<stack>
+
+1547847973 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_41.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
+1549098786 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_61.cpp
+	<iostream>
+	<vector>
+
+1517821000 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_51.cpp
+	<iostream>
+	<vector>
+
+1549184858 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_62.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+
+1549918923 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_75.cpp
+	<iostream>
+	<vector>
+
+1550523234 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_79.cpp
+	<iostream>
+	<vector>
+	<unordered_set>
+	<queue>
+
+1551616596 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_82.cpp
+	<iostream>
+	<vector>
+
+1552206890 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_90.cpp
+	<iostream>
+	<vector>
+	<unordered_map>
+	<algorithm>
+	<set>
+
+1517821000 source:f:\from e\code\github\leetcodeex\cpp_leetcode_排列组合.cpp
+	<iostream>
+	<vector>
+
+1552208492 source:f:\from e\code\github\leetcodeex\组合.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<set>
+
+1555693887 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_92.cpp
+	<iostream>
+	<vector>
+
+1556367324 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_95.cpp
+	<iostream>
+	<vector>
+	<string>
+
+1556440950 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_96.cpp
+	<iostream>
+	<vector>
+
+1556639187 source:f:\from e\code\github\leetcodeex\cpp_leetcode_algo_97.cpp
+	<iostream>
+	<vector>
+	<string>
+	<unordered_map>
+

@@ -75,3 +75,29 @@ string longestCommonPrefix(vector<string>& strs){
 
     return ans;
 }
+
+
+/*
+solution 3
+*/
+string longestCommonPrefix(vector<string>& strs) {
+    if(strs.empty()) return "";
+
+    string ans = "";
+    int min_size = INT_MAX;
+
+
+    for(auto s : strs){
+        min_size = min((int)s.size(), min_size);
+    }
+
+    for(int i=0; i<min_size; i++){
+        char ch = strs[0][i];
+        for(int j=1; j<strs.size(); j++){
+            if(ch != strs[j][i]) return ans;
+        }
+        ans += ch;
+    }
+
+    return ans;
+}

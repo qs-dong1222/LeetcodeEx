@@ -33,7 +33,7 @@ string simplifyPath(string path) {
             continue;
         }
         else if(tmps == ".."){
-            // 这必须把if写在里面, 目的时避免读取"../xxx"中的".."
+            // 这必须把if写在里面, 目的是避免读取"../xxx"中的".."
             // 如果 !stk.empty() 写到else if里面, 就会跳到下面的else, 导致".."被存入stack
             if(!stk.empty()) stk.pop();
         }
@@ -48,7 +48,7 @@ string simplifyPath(string path) {
         stk.pop();
     }
 
-    if(ans.empty()) return "/"; // 这个是防止单独 "/" 出现时, ans的结果是个"", 啥也没沟. 但我们应该返回 "/".
+    if(ans.empty()) return "/"; // 这个是防止单独 "/" 出现时, ans的结果是个"", 啥也没有. 但我们应该返回 "/".
 
     return ans;
 }

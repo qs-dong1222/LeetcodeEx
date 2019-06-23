@@ -43,23 +43,42 @@ int main(){
 
 
 
+/*
+    solution 1
+*/
+//ListNode* swapPairs(ListNode* head) {
+//    if(!head) return head;
+//
+//    ListNode* dummyHead = new ListNode(0);
+//    dummyHead->next = head;
+//    ListNode* p = dummyHead;
+//
+//    while(p->next && p->next->next){
+//        ListNode* t1 = p->next->next->next;
+//        p->next->next->next = p->next;
+//        ListNode* t2 = p->next;
+//        p->next = p->next->next;
+//        t2->next = t1;
+//
+//        p = p->next->next;
+//    }
+//
+//    return dummyHead->next;
+//}
 
+
+/*
+    solutioin 2: recurrsion method
+*/
 ListNode* swapPairs(ListNode* head) {
-    if(!head) return head;
+    if(!head || !head->next) return head;
 
-    ListNode* dummyHead = new ListNode(0);
-    dummyHead->next = head;
-    ListNode* p = dummyHead;
+    ListNode* tmp = head->next;
 
-    while(p->next && p->next->next){
-        ListNode* t1 = p->next->next->next;
-        p->next->next->next = p->next;
-        ListNode* t2 = p->next;
-        p->next = p->next->next;
-        t2->next = t1;
+    head->next = head->next->next;
+    tmp->next = head;
 
-        p = p->next->next;
-    }
+    tmp->next->next = swapPairs(tmp->next->next);
 
-    return dummyHead->next;
+    return tmp;
 }

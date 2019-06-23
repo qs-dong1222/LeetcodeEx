@@ -17,7 +17,7 @@ int main(){
 
 
 /*
-solution 1
+solution 1, convert to string
 */
 //int reverse(int x) {
 //    int sign = x>0? 1:-1;
@@ -42,7 +42,7 @@ solution 1
 
 
 /*
-solution 2
+solution 2, , convert to string
 */
 //int reverse(int x) {
 //    int sign = 1;
@@ -65,7 +65,7 @@ solution 2
 
 
 /*
-solution 3
+solution 3, convert to string
 */
 int reverse(int x){
     int neg = x<0? true:false;
@@ -76,4 +76,29 @@ int reverse(int x){
     auto ans = atoll(s.c_str());
     if(ans < INT_MIN || ans > INT_MAX) return 0;
     return ans;
+}
+
+
+
+/*
+solution 4, pure math solution. 只有一点需要注意, 最终结果不能超出int的最大范围
+*/
+int reverse(int x) {
+    int sign = (x>=0)? 1:-1;
+    int rem = 0;
+    long int ans_abs = 0;
+
+    x = abs(x);
+
+    while(x>0){
+        rem = x % 10;
+        ans_abs = ans_abs * 10 + rem;
+        if(ans_abs*sign>INT_MAX || ans_abs*sign<INT_MIN){
+            return 0;
+        }
+
+        x /= 10;
+    }
+
+    return ans_abs*sign;
 }

@@ -74,6 +74,43 @@ solution 2 : dynamic programming
 //}
 
 
+// dp: 同上, 只不过换成从左边向右边扫
+//string longestPalindrome(string s){
+//    if(s.empty()) return s;
+//    vector<vector<bool>> dp(s.size(), vector<bool>(s.size(), false));
+//
+//    int maxlen = 0;
+//    int lidx = 0;
+//    for(int r=0; r<s.size(); r++){
+//        for(int l=r; l>=0; l--){
+//            if(l == r){
+//                dp[l][r] = true;
+//            }
+//
+//            if(r-l == 1){
+//                if(s[l] == s[r]){
+//                    dp[l][r] = true;
+//                }
+//            }
+//
+//            if(r-l > 1){
+//                if(s[l] == s[r] && dp[l+1][r-1]){
+//                    dp[l][r] = true;
+//                }
+//            }
+//
+//            if(dp[l][r] && maxlen < r-l+1){
+//                maxlen = r-l+1;
+//                lidx = l;
+//            }
+//        }
+//    }
+//
+//    return s.substr(lidx, maxlen);
+//}
+
+
+
 
 /*
 solution 3 : 以各个回文中心往外扩展

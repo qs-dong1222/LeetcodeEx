@@ -5,12 +5,14 @@
 #include <set>
 
 using namespace std;
-void combine(vector<int>& nums, int n, int d, int startIdx, vector<int>& curr, set<vector<int>>& ans);
+
+void combineWithSet(vector<int>& nums, int start, vector<int>& curr, set<vector<int>>& ans);
+void combineHasDup(vector<int>& nums, set<vector<int>>& ans);
+
+
 vector<vector<int>> subsetsWithDup(vector<int>& nums) ;
 int main(){
     vector<int> nums = {2,1,2,1,3};
-    sort(nums.begin(), nums.end());
-
     vector<vector<int>> ans = subsetsWithDup(nums);
 
     for(auto eachRow : ans){
@@ -24,18 +26,35 @@ int main(){
 }
 
 
+/*
+    思路比较直接, 先用针对有重复元素的组合方法去找出所有子组合, 再由set换成数组存储
+*/
+void combineWithSet(vector<int>& nums, int start, vector<int>& curr, set<vector<int>>& ans){
+    if(start == (int)nums.size()){
+        ans.insert(curr);
+        return;
+    }
+
+    curr.push_back(nums[start]);
+    combineWithSet(nums, start+1, curr, ans);
+    curr.pop_back();
+    combineWithSet(nums, start+1, curr, ans);
+}
+
+
+void combineHasDup(vector<int>& nums, set<vector<int>>& ans){
+    sort(nums.begin(), nums.end());
+    vector<int> curr;
+    combineWithSet(nums, 0, curr, ans);
+}
+
+
 
 vector<vector<int>> subsetsWithDup(vector<int>& nums) {
     set<vector<int>> ans;
     if(nums.empty()) return vector<vector<int>>(0,vector<int>(0));
 
-    sort(nums.begin(), nums.end());
-
-    vector<int> curr;
-    for(int i=0;i<=nums.size();i++){
-        curr.clear();
-        combine(nums, nums.size(), nums.size()-i, 0, curr, ans);
-    }
+    combineHasDup(nums, ans);
 
     vector<vector<int>> res;
     for(auto each : ans){
@@ -45,15 +64,4 @@ vector<vector<int>> subsetsWithDup(vector<int>& nums) {
 }
 
 
-void combine(vector<int>& nums, int n, int d, int startIdx, vector<int>& curr, set<vector<int>>& ans){
-    if(d==n){
-        ans.insert(curr);
-        return;
-    }
 
-    for(int i=startIdx; i<nums.size(); i++){
-        curr.push_back(nums[i]);
-        combine(nums, n, d+1, i+1, curr, ans);
-        curr.pop_back();
-    }
-}

@@ -26,3 +26,21 @@ bool isPalindrome(int x) {
 
     return (ans==x);
 }
+
+
+
+bool isPalindrome(int x) {
+    if(x < 0) return false;
+
+    stringstream ss;
+    ss<<x;
+    string s = ss.str();
+    reverse(s.begin(), s.end());
+    ss.str("");
+    ss << s;
+    long int int_ans = 0;
+    ss>>int_ans;
+    if(int_ans > INT_MAX || int_ans < INT_MIN) return false;
+    return (int_ans == x);
+}
+

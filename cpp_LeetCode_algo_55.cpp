@@ -14,7 +14,31 @@ int main(){
 }
 
 
+/*
+    solution: 不多bb, 思路 --- 范围前进
+*/
+bool canJump(vector<int>& nums) {
+    if(nums.size()==1) return true;
 
+    int start = 1, end=nums[0];
+    while(start <= end){
+
+        int nextStart = end+1;
+        for(int j=start; j<nextStart; j++){
+            end = max(end, j+nums[j]);
+            if(end >= nums.size()-1) return true;
+        }
+
+        start = nextStart;
+    }
+
+    return false;
+}
+
+
+/*
+    同上, 另一种写法
+*/
 bool canJump(vector<int>& nums) {
     if(nums.empty()) return true;
 
@@ -37,13 +61,6 @@ bool canJump(vector<int>& nums) {
 
     return false;
 }
-
-
-
-
-
-
-
 
 
 

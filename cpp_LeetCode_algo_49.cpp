@@ -57,8 +57,9 @@ string Encode(const string& s){
     if(s.empty()) return ans;
 
     for(int i=0;i<(int)s.size();i++){
-         int oldcnt = ans[s[i]-'a'] - '0';
-         ans[s[i]-'a'] = oldcnt+1+'0';
+         int alphabet_idx = s[i]-'a';
+         int oldcnt = ans[alphabet_idx] - '0';
+         ans[alphabet_idx] = oldcnt+1+'0';
     }
 
     return ans;

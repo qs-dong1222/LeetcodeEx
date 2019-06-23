@@ -77,14 +77,6 @@ string getPermutation(int n, int k){
 
 
 
-
-
-
-
-
-
-
-
 /*
 牛逼算法:
 这个算法的思路起点是去找规律，从一个例子中找规律.

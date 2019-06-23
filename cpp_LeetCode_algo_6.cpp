@@ -24,6 +24,7 @@ string convert(string s, int rows) {
 
     int rowidx = 0;
     int step = 1;
+    // 以下的操作只适用于大于 rows>1 的时候
     for(int i=0;i<s.size();i++){
         str[rowidx].push_back(s[i]);
 
@@ -42,5 +43,4 @@ string convert(string s, int rows) {
     }
     return ans;
 }
-
 

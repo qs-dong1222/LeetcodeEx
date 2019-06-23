@@ -39,6 +39,11 @@ bool isValidSudoku(vector<vector<char>>& board) {
 
 
 int boxidx(int r, int c){
-    return (c/3 + (r/3)*3);
+    int box_has_cols = 3;
+    int box_has_rows = 3;
+    int box_row_idx = r / box_has_rows;
+    int box_col_idx = c / box_has_cols;
+    int n_boxes_per_row = 3;
+    return (box_col_idx + box_row_idx * n_boxes_per_row);
 }
 

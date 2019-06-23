@@ -30,6 +30,7 @@ int lengthOfLongestSubstring(string s) {
     int startIdx = 0;
     int ans = 1;
     for(int i=0;i<s.size();i++){
+        // 如果是新字符, 或者此字符之前出现的位置在有效边界的左边, 都认为是新字符
         if(!charIdx.count(s[i]) || charIdx[s[i]]<startIdx){
             ans = max(ans, i-startIdx+1);
         }
@@ -51,7 +52,7 @@ int lengthOfLongestSubstring(string s) {
 //先查看是否s[j]已经出现过
 //没出现过: j++, length = max(ori_length, j-i)
 //出现过: 不再改变j，说明此时以s[i]打头的substring已经不好使了，相反的，我们应该换一个新的打头的，即i++
-//        同时删除出现过的记录字符
+//        同时删除出现过的记录字符, 新长度的计算在下一轮loop中实现.
 //*/
 //int lengthOfLongestSubstring(string s) {
 //    int n = s.length();

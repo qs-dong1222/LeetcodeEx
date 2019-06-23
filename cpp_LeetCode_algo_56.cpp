@@ -62,10 +62,6 @@ bool operator<(const Interval& A, const Interval& B){
 }
 
 
-
-
-
-
 vector<Interval> merge(vector<Interval>& intervals) {
     vector<Interval> ans;
     if(intervals.empty()) return ans;
